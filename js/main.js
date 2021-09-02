@@ -22,9 +22,9 @@ const displaySearchResult = docs => {
                 <img src="https://covers.openlibrary.org/b/id/554106-M.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Title: ${docs.title.slice(0, 20)}</h5>
-                    <p class="card-text">Author: ${docs.author_name}</p>
-                    <p class="card-text">Publisher: ${docs.publisher}</p>
-                    <p class="card-text">First published: ${docs.first_publish_year}</p>
+                    <p class="card-text"><span class="card-text-bold">Author:</span> ${docs.author_name}</p>
+                    <p class="card-text"><span class="card-text-bold">Publisher:</span> ${docs.publisher}</p>
+                    <p class="card-text"><span class="card-text-bold">First Published:</span> ${docs.first_publish_year}</p>
                 </div>
             </div>
         `
