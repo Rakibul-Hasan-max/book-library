@@ -1,15 +1,32 @@
+document.getElementById('error-message').style.display = 'none';
 const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+    // clear input data
     searchField.value = '';
-    const url = `https://openlibrary.org/search.json?q=${searchText}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displaySearchResult(data.docs));
+    document.getElementById('error-message').style.display = 'none';
+    if (searchText == '') {
+        displayError()
+    }
+    else {
+        // load data
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displaySearchResult(data.docs));
+    }
+}
+
+const displayError = () => {
+    document.getElementById('error-message').style.display = 'block';
 }
 
 const displaySearchResult = docs => {
     const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
+    if (docs.length == 0) {
+        displayError()
+    }
     docs.slice(0, 20).forEach(docs => {
         console.log(docs);
         const div = document.createElement('div');
