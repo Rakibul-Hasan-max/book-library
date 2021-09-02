@@ -13,7 +13,7 @@ const searchBook = () => {
         const url = `https://openlibrary.org/search.json?q=${searchText}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => displaySearchResult(data.docs));
+            .then(data => displaySearchResult(data.docs, data.numFound));
     }
 }
 
@@ -21,7 +21,7 @@ const displayError = () => {
     document.getElementById('error-message').style.display = 'block';
 }
 
-const displaySearchResult = docs => {
+const displaySearchResult = (docs,numberOfBooks) => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
     if (docs.length == 0) {
@@ -31,6 +31,8 @@ const displaySearchResult = docs => {
         console.log(docs);
         const div = document.createElement('div');
         div.classList.add('col');
+        const totalBook = document.getElementById("numberOfBooks");
+        totalBook.innerText = `Total Books Found: ${numberOfBooks}`;
         div.innerHTML = `
             <div class="card h-100">
                 <img src="https://covers.openlibrary.org/b/id/${docs.cover_i}-M.jpg" style="height: 300px;" class="card-img-top" alt="...">
