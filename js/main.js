@@ -5,7 +5,7 @@ const searchBook = () => {
     // clear input data
     searchField.value = '';
     document.getElementById('error-message').style.display = 'none';
-    if (searchText == '') {
+    if (searchText === '') {
         displayError()
     }
     else {
@@ -24,7 +24,7 @@ const displayError = () => {
 const displaySearchResult = (docs,numberOfBooks) => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
-    if (docs.length == 0) {
+    if (docs.length === 0) {
         displayError()
     }
     docs.slice(0, 20).forEach(docs => {
