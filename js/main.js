@@ -16,7 +16,7 @@ const displaySearchResult = docs => {
         div.classList.add('col');
         div.innerHTML = `
             <div class="card h-100">
-                <img src="https://covers.openlibrary.org/b/id/${docs.cover_i}-M.jpg" class="card-img-top" alt="...">
+                <img src="https://covers.openlibrary.org/b/id/${docs.cover_i}-M.jpg" style="height: 300px;" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Title: ${docs.title}</h5>
                     <p class="card-text"><span class="card-text-bold">Author:</span> ${docs.author_name}</p>
